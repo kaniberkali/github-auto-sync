@@ -1,0 +1,103 @@
+{
+  "name": "github-auto-sync",
+  "productName": "GitHubAutoSync",
+  "version": "2.1.0",
+  "description": "GitHub Auto Sync Tool - Otomatik git senkronizasyon aracı ile gelişmiş dosya izleme, ağ durumu ve transfer istatistikleri",
+  "main": "main.js",
+  "author": "kaniberkali",
+  "license": "MIT",
+  "keywords": ["git", "github", "auto-sync", "file-watcher", "repository", "automation", "tray", "system-tray"],
+  "scripts": {
+    "start": "npx electron .",
+    "dev": "npx electron . --dev",
+    "build": "electron-builder",
+    "dist": "electron-builder --publish=never",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "simple-git": "^3.19.1",
+    "axios": "^1.5.0",
+    "fs-extra": "^11.1.1",
+    "chokidar": "^3.5.3",
+    "minimatch": "^5.1.0"
+  },
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4"
+  },
+  "build": {
+    "appId": "com.kaniberkali.githubautosync",
+    "productName": "GitHubAutoSync",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!dist",
+      "!node_modules/.cache"
+    ],
+    "extraResources": [
+      {
+        "from": "assets/",
+        "to": "assets/",
+        "filter": ["**/*"]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "publisherName": "kaniberkali",
+      "requestedExecutionLevel": "asInvoker",
+      "icon": "assets/icons/icon.ico"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        }
+      ],
+      "category": "public.app-category.developer-tools",
+      "icon": "assets/icons/icon.icns"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": ["x64"]
+        },
+        {
+          "target": "deb",
+          "arch": ["x64"]
+        }
+      ],
+      "category": "Development",
+      "icon": "assets/icons/icon.png",
+      "maintainer": "kaniberkali",
+      "vendor": "kaniberkali",
+      "synopsis": "GitHub Auto Sync Tool",
+      "description": "Otomatik git senkronizasyon aracı ile gelişmiş dosya izleme"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createStartMenuShortcut": true,
+      "createDesktopShortcut": true,
+      "runAfterFinish": true,
+      "installerIcon": "assets/icons/icon.ico",
+      "uninstallerIcon": "assets/icons/icon.ico",
+      "license": "LICENSE"
+    },
+    "deb": {
+      "packageCategory": "devel",
+      "priority": "optional"
+    },
+    "appImage": {
+      "license": "LICENSE"
+    }
+  }
+}
