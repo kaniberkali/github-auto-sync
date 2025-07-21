@@ -6,6 +6,8 @@
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-blue)](https://github.com/kaniberkali/github-auto-sync)
 [![Version](https://img.shields.io/badge/Version-2.1.0-green)](https://github.com/kaniberkali/github-auto-sync/releases)
 
+<img width="1920" height="1032" alt="githubautosync" src="https://github.com/user-attachments/assets/7117127b-cd0c-492e-bbd4-7bf13bd12c22" />
+
 ## ✨ Features
 
 ### 🔄 **Automatic Synchronization**
